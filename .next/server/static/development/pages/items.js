@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -129,7 +129,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    query HELLO_QUERY {\n        me \n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n  query USER_QUERY($id: String!) {\n    user(_id: $id) {\n        username\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -143,7 +143,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var HELLO_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+var USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
 var Items =
 /*#__PURE__*/
@@ -162,14 +162,17 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 15
+          lineNumber: 16
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-        query: HELLO_QUERY,
+        query: USER_QUERY,
+        variables: {
+          id: "5be25ea699a5281971e3bf2a"
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 17
         },
         __self: this
       }, function (_ref) {
@@ -179,18 +182,17 @@ function (_Component) {
         if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 18
+            lineNumber: 19
           },
           __self: this
         }, "Loading...");
         if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 20
           },
           __self: this
         }, "Error: ", error.message);
-        console.log(data);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
@@ -209,6 +211,90 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./components/PleaseLogIn.js":
+/*!***********************************!*\
+  !*** ./components/PleaseLogIn.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\JoshuaCook\\WebstormProjects\\practice-frontend-2\\frontend\\components\\PleaseLogIn.js";
+
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    query {\n        me{\n            _id\n            email\n            username\n        }\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+var CURRENT_USER_QUERY = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+
+var PleaseLogIn = function PleaseLogIn(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+    query: CURRENT_USER_QUERY,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, function (_ref) {
+    var data = _ref.data,
+        loading = _ref.loading;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, "...", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      className: "fal fa-rabbit-fast",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }));
+
+    if (!data.me) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, "Please sign in, thanks!"));
+    }
+
+    return props.children;
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PleaseLogIn);
+
+/***/ }),
+
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -221,7 +307,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Items__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Items */ "./components/Items.js");
+/* harmony import */ var _components_PleaseLogIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PleaseLogIn */ "./components/PleaseLogIn.js");
 var _jsxFileName = "C:\\Users\\JoshuaCook\\WebstormProjects\\practice-frontend-2\\frontend\\pages\\index.js";
+
 
 
 
@@ -229,13 +317,13 @@ var Home = function Home(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 5
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Items__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: this
   }));
@@ -245,14 +333,29 @@ var Home = function Home(props) {
 
 /***/ }),
 
-/***/ 3:
+/***/ "./pages/items.js":
+/*!************************!*\
+  !*** ./pages/items.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./pages/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_index__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ 5:
 /*!******************************!*\
-  !*** multi ./pages/index.js ***!
+  !*** multi ./pages/items.js ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! ./pages/items.js */"./pages/items.js");
 
 
 /***/ }),
@@ -291,4 +394,4 @@ module.exports = require("react-apollo");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=items.js.map

@@ -1,24 +1,5 @@
 webpackHotUpdate("static\\development\\pages\\_app.js",{
 
-/***/ "./config.js":
-/*!*******************!*\
-  !*** ./config.js ***!
-  \*******************/
-/*! exports provided: endpoint, prodEndpoint, perPage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "prodEndpoint", function() { return prodEndpoint; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "perPage", function() { return perPage; });
-// This is client side config only - don't put anything in here that shouldn't be public!
-var endpoint = "https://bb-practice-backend.herokuapp.com";
-var prodEndpoint = "https://bb-practice-backend.herokuapp.com";
-var perPage = 4;
-
-/***/ }),
-
 /***/ "./lib/withData.js":
 /*!*************************!*\
   !*** ./lib/withData.js ***!
@@ -39,15 +20,15 @@ __webpack_require__.r(__webpack_exports__);
 function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1__["default"]({
-    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined // request: operation => {
-    //   operation.setContext({
-    //     fetchOptions: {
-    //       credentials: 'include',
-    //     },
-    //     headers,
-    //   });
-    // },
-
+    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
+    request: function request(operation) {
+      operation.setContext({
+        // fetchOptions: {
+        //   credentials: 'include',
+        // },
+        headers: headers
+      });
+    }
   });
 }
 
@@ -56,4 +37,4 @@ function createClient(_ref) {
 /***/ })
 
 })
-//# sourceMappingURL=_app.js.3f08b88d8198f380af1b.hot-update.js.map
+//# sourceMappingURL=_app.js.91bd8eda3079906af4c3.hot-update.js.map

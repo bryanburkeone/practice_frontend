@@ -20,15 +20,14 @@ __webpack_require__.r(__webpack_exports__);
 function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1__["default"]({
-    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined // request: operation => {
-    //   operation.setContext({
-    //     fetchOptions: {
-    //       credentials: 'include',
-    //     },
-    //     headers,
-    //   });
-    // },
-
+    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
+    request: function request(operation) {
+      operation.setContext({// fetchOptions: {
+        //   credentials: 'include',
+        // },
+        // headers,
+      });
+    }
   });
 }
 
@@ -37,4 +36,4 @@ function createClient(_ref) {
 /***/ })
 
 })
-//# sourceMappingURL=_app.js.8539d15aaabb4f41e929.hot-update.js.map
+//# sourceMappingURL=_app.js.e6d96f3cf6fd470ea808.hot-update.js.map
