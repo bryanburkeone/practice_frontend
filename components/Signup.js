@@ -50,41 +50,42 @@ class Signup extends Component {
                                 this.setState({username: '', password: '', email: ''})
                             }}
                         >
-                            <fieldset disabled={loading} aria-busy={loading}>
-                                <h2>Sign up for an Account</h2>
-                                <Error error={error} />
-                                <label htmlFor="email">
-                                    Email
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="email"
-                                        value={this.state.email}
-                                        onChange={this.saveToState}
-                                    />
-                                </label>
-                                <label htmlFor="name">
-                                    Name
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        placeholder="name"
-                                        value={this.state.username}
-                                        onChange={this.saveToState}
-                                    />
-                                </label>
-                                <label htmlFor="password">
-                                    Password
-                                    <input
-                                        type="paswword"
-                                        name="password"
-                                        placeholder="password"
-                                        value={this.state.password}
-                                        onChange={this.saveToState}
-                                    />
-                                </label>
-                                <button type="submit">SignUp!</button>
-                            </fieldset>
+                                    <h2>Sign up for an Account</h2>
+                                    <Error error={error} />
+                                    <label htmlFor="email">
+                                        Email
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="email"
+                                            value={this.state.email}
+                                            onChange={this.saveToState}
+                                        />
+                                    </label>
+                                    <label htmlFor="name">
+                                        Name
+                                        <input
+                                            type="text"
+                                            name="username"
+                                            placeholder="name"
+                                            value={this.state.username}
+                                            onChange={this.saveToState}
+                                        />
+                                    </label>
+                                    <label htmlFor="password">
+                                        Password
+                                        <input
+                                            type="paswword"
+                                            name="password"
+                                            placeholder="password"
+                                            value={this.state.password}
+                                            onChange={this.saveToState}
+                                        />
+                                    </label>
+                                    <button type="submit">SignUp!</button>
+
+
+
                         </Form>
                     )
                 }}
